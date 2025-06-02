@@ -56,3 +56,47 @@ void loop()
 
 }
 ```
+## 버튼으로 LED 경찰봉 구현하기
+![](./images/led02.png)
+
+```c
+// C++ code
+#define LED1 8
+#define LED2 7
+#define BUTTON 4
+#define DELAY_TIME 80
+
+int state=0;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(BUTTON,INPUT_PULLUP);
+  pinMode(LED1,OUTPUT);
+  pinMode(LED2,OUTPUT);
+          
+  
+}
+
+void loop()
+{
+ int buttonValue = !digitalRead(BUTTON);
+  
+  if(buttonValue == 1){
+    state = !state;
+    delay(500);
+  }
+  if(state == 0) {
+    digitalWrite(LED1, HIGH);
+    digitalWrite(LED2,LOW);
+    delay(DELAY_TIME);
+    digitalWrite(LED2, HIGH);
+    digitalWrite(LED1,LOW);
+    delay(DELAY_TIME);
+  }
+  else if(state == 1) {
+    digitalWrite(LED1, LOW);
+    digitalWrite(LED2,LOW);
+  }
+}
+```
