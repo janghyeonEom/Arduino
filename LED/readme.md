@@ -101,7 +101,7 @@ void loop()
 }
 ```
 ## LED 가변저항으로 밝기 조절하기
-![](./images/led0.png)
+![](./images/led04.png)
 
 ```c
 #define LED 9
